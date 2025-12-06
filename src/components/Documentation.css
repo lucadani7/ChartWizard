@@ -1,0 +1,97 @@
+.documentation-page {
+    font-family: "Georgia", "Times New Roman", serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.documentation-page article {
+    background-color: #fff;
+    padding: 3rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.documentation-page header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.documentation-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.documentation-page .authors {
+    font-style: italic;
+    color: #666;
+}
+
+.documentation-page section {
+    margin-bottom: 2rem;
+}
+
+.documentation-page h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+.documentation-page h3 {
+    font-size: 1.4rem;
+    color: #34495e;
+    margin-top: 1.5rem;
+}
+
+.documentation-page p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.documentation-page code {
+    background-color: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9em;
+}
+
+.documentation-page pre {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.documentation-page ul {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+.documentation-page li {
+    margin-bottom: 0.5rem;
+}
+
+.documentation-page figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.documentation-page figcaption {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.documentation-page .keyword {
+    font-weight: bold;
+    color: #2980b9;
+}
