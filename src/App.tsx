@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { BmiFilters, BmiRecord, ComparisonKey, Gender } from "./types";
 import { fetchBmiGraphQL, fetchBmiRest, loadMock } from "./api/client";
 import BarChart from "./components/BarChart";
@@ -26,7 +26,10 @@ export default function App() {
   });
   const [rows, setRows] = useState<BmiRecord[]>([]);
 
-  const svgRef = useRef<SVGSVGElement | null>(null);
+  const [svgEl, setSvgEl] = useState<SVGSVGElement | null>(null);
+  const handleSvgRef = useCallback((el: SVGSVGElement | null) => {
+    setSvgEl(el);
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -198,9 +201,7 @@ export default function App() {
             groupBy={compareBy}
             width={undefined} // let chart auto-size or default
             height={undefined}
-            onSvgRef={(el) => {
-              svgRef.current = el;
-            }}
+            onSvgRef={handleSvgRef}
           />
         )}
         {chart === "line" && (
@@ -209,9 +210,7 @@ export default function App() {
             seriesBy={compareBy}
             width={undefined}
             height={undefined}
-            onSvgRef={(el) => {
-              svgRef.current = el;
-            }}
+            onSvgRef={handleSvgRef}
           />
         )}
         {chart === "pie" && (
@@ -219,19 +218,17 @@ export default function App() {
             data={filtered}
             width={undefined}
             height={undefined}
-            onSvgRef={(el) => {
-              svgRef.current = el;
-            }}
+            onSvgRef={handleSvgRef}
           />
         )}
       </section>
 
       <ExportPanel
-        svgEl={svgRef.current}
+        svgEl={svgEl}
         chartType={chart}
         data={filtered}
-        width={svgRef.current?.width.baseVal.value || 720}
-        height={svgRef.current?.height.baseVal.value || 420}
+        width={svgEl?.getBoundingClientRect()?.width || 720}
+        height={svgEl?.getBoundingClientRect()?.height || 420}
       />
         </>
       )}
